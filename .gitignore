@@ -1,0 +1,7 @@
+# backups
+*~
+
+# large text files
+*.txt
+*.tar.gz
+bookcorpus_deduped_190220/
