@@ -42,10 +42,10 @@ def write_doc(cache_doc, out_file):
 
 if __name__ == '__main__':
     try:
-        os. remove(sys.argv[2])
+        os.remove(sys.argv[2])
     except FileNotFoundError:
         pass
-    #with open(sys.argv[2], 'w') as f:
-    #    f.write('')
+    with open(sys.argv[2], 'w') as f:
+        f.write('')
 
     parse(sys.argv[1], sys.argv[2])

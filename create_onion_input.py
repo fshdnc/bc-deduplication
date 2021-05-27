@@ -12,8 +12,12 @@ import sys
 
 def add_par_tag(fileName, in_dir, out_file):
     in_file = in_dir + fileName
-    with open(in_file) as f:
-        lineList = f.readlines()
+    try:
+        with open(in_file) as f:
+            lineList = f.readlines()
+    except UnicodeDecodeError:
+        print("UnicodeDecodeError", in_file, file=sys.stderr)
+        return
 
     # tokenization
     tokList = []
@@ -32,6 +36,8 @@ def add_par_tag(fileName, in_dir, out_file):
     with open(out_file, 'a') as f:
         f.write('\n'.join(parList))
         f.write('\n')
+
+    print("Done", in_file, file=sys.stderr)
 
 if __name__ == '__main__':
     files = [f for f in os.listdir(sys.argv[1])]
